@@ -57,7 +57,9 @@ function getLoaderDefaultFeatures() {
 
 	var features = nodeRequire(path.join(process.argv[1], "../loaderDefaultFeatures"));
 	features = Object.assign({}, features, featureOverrides);
-	features['dojo-inject-api'] = !hasInjectApiFix;
+	// TODO: we need to update our dojo, we use dojo 1.13.0-pre which has not the fix of 
+	// included https://github.com/dojo/dojo/pull/266
+	features['dojo-inject-api'] = true;
 	return features;
 }
 
